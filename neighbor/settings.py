@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+from decouple import config,Csv
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-f-k_r1)d(6xb&jr@acyij$pm$qvxu)qks5a1+0vuof4a@eavc!'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'resident.apps.ResidentConfig',
-    'bootstrap4'
+    'bootstrap4',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -72,14 +77,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'neighbor.wsgi.application'
 
-
+cloudinary.config(
+    cloud_name=config('YOUR_CLOUD_NAME'),
+    api_key=config('YOUR_API_KEY'),
+    api_secret=config('YOUR_API_SECRET'),
+    secure=True
+)
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'neighborhood',
+        'USER':'moringa',
+        'PASSWORD':'1234',
     }
 }
 
