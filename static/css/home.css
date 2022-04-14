@@ -1,0 +1,25 @@
+.row{
+    background-color: white;
+    height: 200px;
+    width: 900px;
+    margin-top: 50px;
+    border-radius: 30px;
+    text-align: center;
+    padding: 30px;
+    line-height: 20px;
+}
+.bg{
+    background: url("/static/image/neib.jpg");
+    margin-top: 50px;
+    height: 300px;
+    border-radius: 30px;
+}
+.footer{
+    height: 70px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    text-align: center;
+    padding-top:20px ;
+    
+}

@@ -1,0 +1,21 @@
+{%extends 'all-hoods/base.html' %} {% block content %} {{block.super}}
+{% load static %}
+   <link rel="stylesheet" href="{% static 'css/home.css' %}">
+   <div class="container">
+       <div class="row">
+           <h2 style="margin-left:200px">
+               <b>Welcome to Our Neighborhood</b>
+           </h2>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Perspiciatis id repudiandae tempora vel voluptates, ab aspernatur reiciendis ea
+                 ullam harum laborum cupiditate consequatur, officia est quo architecto itaque quidem minima?
+           </p>
+       </div>
+       <div class="bg">
+       </div>
+       <div class="footer">
+           <p style="margin-left: 130px;">Copyright &copy;2022 All Rights reserved</p>
+       </div>
+   </div>
+   
+{% endblock %}
