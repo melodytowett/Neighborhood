@@ -1,6 +1,7 @@
 
 from email.policy import default
 from os import name
+from pyexpat import model
 from django.db import models
 from django.contrib.auth.models import User
 from phone_field import PhoneField
@@ -67,6 +68,21 @@ class Business(models.Model):
         self.save()
 
     def delete_business(self):
+        self.delete()
+
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    hood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,default=True)
+    post = models.TextField()
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='author')
+
+    def __str__(self):
+        return self.title
+    
+    def save_post(self):
+        self.save()
+    
+    def delete_post(self):
         self.delete()
 
   

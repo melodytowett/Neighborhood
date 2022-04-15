@@ -1,5 +1,3 @@
-from locale import currency
-from unicodedata import name
 from django.shortcuts import redirect, render
 from.forms import BusinessForm, HoodForm, ProfileForm
 from resident.models import Neighborhood
@@ -37,7 +35,7 @@ def my_profile(request):
     else:
         prof_form = ProfileForm()
     return render(request,'all-hoods/profile.html',{"prof_form":prof_form})
-        
+       
 def my_business(request):
     current_user = request.user
     if request.method == 'POST':
