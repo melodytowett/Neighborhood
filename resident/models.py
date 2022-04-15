@@ -1,7 +1,9 @@
 
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from phone_field import PhoneField
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Neighborhood(models.Model):
@@ -9,6 +11,7 @@ class Neighborhood(models.Model):
     location = models.CharField(max_length=200)
     admin = models.ForeignKey(User,on_delete=models.CASCADE,related_name="hood",null=True)
     about = models.TextField()
+    image_hood = CloudinaryField('image',default=True)
     administrator = models.CharField(max_length=200,null=True)
     doctor_no = PhoneField(blank=True)
     police_num = PhoneField(blank=True)
@@ -16,10 +19,19 @@ class Neighborhood(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save_hood(self):
+        self.save()
+
+    def delete_hood(self):
+        self.delete()
+
+    def update_hood(self):
+        self.update()
         
     @classmethod
     def my_neighbor(cls,name):
-        neighbors = cls.objects.filter(name__in=name)
+        neighbors = cls.objects.filter(name=name)
         return neighbors
 
 class Profile(models.Model):
@@ -27,6 +39,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500,blank=True)
     neighborhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,related_name='hood',blank=True)
     phone = PhoneField(blank=True,help_text ='Contact phone number')
+    profile_pic = CloudinaryField('image',default=True)
 
     def __str__(self):
         return f'{self.user.username}Profile'

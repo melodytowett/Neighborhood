@@ -1,0 +1,15 @@
+{%extends 'all-hoods/base.html' %}
+{% block content %}
+{{block.super}}
+<div class="container">
+    {% for neighbor in neighbors %}
+    <div class="row" style="color: white;">
+        <p> {{neighbor.name}} </p>
+        <p>{{neighbor.location}}</p>
+        <p> {{neighbor.about}} </p>
+        <p> {{neighbor.police_num}} </p>
+        <img src="{{neighbor.image_hood.url}}" alt="">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
