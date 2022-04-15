@@ -17,10 +17,11 @@ class Neighborhood(models.Model):
     administrator = models.CharField(max_length=200,null=True)
     doctor_no = PhoneField(blank=True)
     police_num = PhoneField(blank=True)
-    
+    class Meta:
+        ordering = ['-pk']
 
     def __str__(self):
-        return self.name
+        return f'{self.name} hood'
 
     def save_hood(self):
         self.save()
@@ -31,10 +32,14 @@ class Neighborhood(models.Model):
     def update_hood(self):
         self.update()
         
+    
     @classmethod
     def my_neighbor(cls,name):
         neighbors = cls.objects.filter(name=name)
         return neighbors
+    @classmethod
+    def find_hood(cls,neighborhood_id):
+        return cls.objects.filter(id=neighborhood_id)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='prof')
@@ -43,6 +48,7 @@ class Profile(models.Model):
     neighborhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,related_name='hood',blank=True)
     phone = PhoneField(blank=True,help_text ='Contact phone number')
     profile_pic = CloudinaryField('image',default=True)
+
 
     def __str__(self):
         return f'{self.user.username}Profile'
@@ -61,8 +67,11 @@ class Business(models.Model):
     neighborhood=models.ForeignKey(Neighborhood,on_delete=models.CASCADE, related_name='neighborhood')
     email=models.EmailField()
 
+    class Meta:
+        ordering = ['-pk']
+
     def __str__(self):
-        return self.business_name
+        return f'{self.business_name}Business'
 
     def save_business(self):
         self.save()
@@ -75,9 +84,10 @@ class Post(models.Model):
     hood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,default=True)
     post = models.TextField()
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='author')
+    # post_date = models.DateField()
 
     def __str__(self):
-        return self.title
+        return f'{self.title}Post'
     
     def save_post(self):
         self.save()

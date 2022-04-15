@@ -1,5 +1,5 @@
-from dataclasses import field
-from .models import Business, Neighborhood, Profile
+from dataclasses import field, fields
+from .models import Business, Neighborhood, Post, Profile
 from django import forms
 class HoodForm(forms.ModelForm):
     class Meta:
@@ -13,3 +13,8 @@ class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
         fields = ['business_name','business_image','email']
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title','post']
