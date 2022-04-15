@@ -1,0 +1,12 @@
+{% extends 'all-hoods/base.html'%}
+{% load bootstrap4 %} 
+{% load static %} 
+{% load crispy_forms_tags %}
+{% block content %}
+{{block.super}}
+  <form  action="{%url 'new_hood'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{ biz_form|crispy }}
+    <input type="submit" class="btn btn-success btn-lg" value="Post">
+  </form>
+{% endblock %}

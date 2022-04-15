@@ -1,7 +1,7 @@
 from locale import currency
 from unicodedata import name
 from django.shortcuts import redirect, render
-from.forms import HoodForm, ProfileForm
+from.forms import BusinessForm, HoodForm, ProfileForm
 from resident.models import Neighborhood
 
 # Create your views here.
@@ -38,4 +38,16 @@ def my_profile(request):
         prof_form = ProfileForm()
     return render(request,'all-hoods/profile.html',{"prof_form":prof_form})
         
+def my_business(request):
+    current_user = request.user
+    if request.method == 'POST':
+        biz_form = BusinessForm(request.POST,request.FILES)
+        if biz_form.is_valid():
+            business = biz_form.save(commit=False)
+            business.user = current_user
+            business.save()
+        return redirect('business')
+    else:
+        biz_form = BusinessForm()
+    return render(request,'all-hoods/biz.html',{"biz_form":biz_form})
 

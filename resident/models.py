@@ -56,10 +56,17 @@ class Profile(models.Model):
 class Business(models.Model):
     business_name = models.CharField(max_length=100)
     owner = models.ForeignKey(User,on_delete=models.CASCADE,default=True)
+    business_image= CloudinaryField('image',blank=True)
     neighborhood=models.ForeignKey(Neighborhood,on_delete=models.CASCADE, related_name='neighborhood')
     email=models.EmailField()
 
     def __str__(self):
         return self.business_name
+
+    def save_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
 
   

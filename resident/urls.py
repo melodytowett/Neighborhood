@@ -10,6 +10,7 @@ urlpatterns=[
     path('hood/',views.my_neighborhood,name='hood'),
     path('new_hood/',views.join_hood,name='new_hood'),
     path('my_profile/',views.my_profile,name='profile'),
+    path('my_biz/',views.my_business,name='business')
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
