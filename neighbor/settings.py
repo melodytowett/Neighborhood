@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'resident.apps.ResidentConfig',
     'bootstrap4',
     'cloudinary',
+    'phone_field',
 ]
 
 MIDDLEWARE = [
