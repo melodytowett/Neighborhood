@@ -1,5 +1,6 @@
 
 from email.policy import default
+from os import name
 from django.db import models
 from django.contrib.auth.models import User
 from phone_field import PhoneField
@@ -37,12 +38,20 @@ class Neighborhood(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='prof')
     bio = models.TextField(max_length=500,blank=True)
+    name = models.CharField(max_length=100,blank=True)
     neighborhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,related_name='hood',blank=True)
     phone = PhoneField(blank=True,help_text ='Contact phone number')
     profile_pic = CloudinaryField('image',default=True)
 
     def __str__(self):
         return f'{self.user.username}Profile'
+
+    def save_profile(self):
+        self.save()
+        
+    def delete_profile(self):
+        self.delete()
+    
 
 class Business(models.Model):
     business_name = models.CharField(max_length=100)

@@ -1,6 +1,7 @@
+from locale import currency
 from unicodedata import name
 from django.shortcuts import redirect, render
-from.forms import HoodForm
+from.forms import HoodForm, ProfileForm
 from resident.models import Neighborhood
 
 # Create your views here.
@@ -24,6 +25,17 @@ def join_hood(request):
         hood_form = HoodForm()
     return render(request,'all-hoods/new-hood.html',{"hood_form":hood_form})
 
-
+def my_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        prof_form = ProfileForm(request.POST,request.FILES)
+        if prof_form.is_valid():
+            profile = prof_form.save(commit=False)
+            profile.user=current_user
+            profile.save()
+        return redirect('new_hood')
+    else:
+        prof_form = ProfileForm()
+    return render(request,'all-hoods/profile.html',{"prof_form":prof_form})
         
 
