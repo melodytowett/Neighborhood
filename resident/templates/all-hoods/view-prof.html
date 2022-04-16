@@ -3,27 +3,28 @@
 {% load static %} 
 {% block content %}
 {{block.super}}
-<div class="container">
-  <div class="row">
-      {%for profile in profiles %}
-      {{profile.bio}}
+{%for profile in profiles %}
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="card" style="margin-top: 30px;">
+        <div class="upper"> <img src="/static/image/neib.jpg" class="img-fluid" style="width: 300px; height: 100px;"> </div>
+        <div class="user text-center">
+            <div class="profile">  <img class="rounded-circle" src="{{profile.profile_pic.url}}" alt="" width="80"> </div>
+        </div>
+        <div class="mt-5 text-center">
+            <h4 class="mb-0">Name: {{profile.name}} </h4> <span class="text-muted d-block mb-2">Number: {{profile.phone}} </span> <button class="btn btn-primary btn-sm follow">Neighborhood</button>
+            <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+                <div class="stats">
+                  {% if profile.neighborhood %}
+                    <h6 class="mb-0">Neighborhood</h6> <span> {{profile.neighborhood}} </span>
+                    {%endif%}
+                </div>
+                <div class="stats">
+                    <h6 class="mb-0">Location</h6> <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
-    <img class="rounded-circle" src="{{profile.profile_pic.url}}" alt="">
-    {{user.profile.name}}
-    {{user.profile.bio}}
-    <div class="col-md-3">
-      {%if profile.neighborhood %}
-      <p> {{profile.neighborhood.name}} </p>
-      {%endif%}
-    </div>
-    <div class="col-md-3">
-      <p><span>Name:</span> {{profile.name}} </p>
-      {% if profile.phone%}
-      <p><span>Phone Number</span> {profile.phone} </p>
-      {%endif%}
-      <p>{{user.profile.bio}}</p>
-    </div>
-    {% endfor %}
-  </div>
-  </div>
-  {% endblock%}
+{% endblock%}
