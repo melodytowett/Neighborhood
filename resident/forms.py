@@ -12,9 +12,9 @@ class ProfileForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields = ['business_name','business_image','email']
+        fields = ['business_name','business_image','email','owner','neighborhood']
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title','post']
+        fields = ['title','post','hood','author']

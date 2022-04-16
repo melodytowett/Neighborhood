@@ -23,7 +23,19 @@
             <p> <span>Hospital Number:</span> {{neighbor.doctor_no}} </p>
             <p> <span>Administator Number:</span> {{neighbor.administrator}} </p>
         </div>
+        {% for post in posts %}
+      
+        <p> {{ post.title}}</p>
+        <p>{{ post.post }}</p>
+    
+        {% endfor %}
         <hr>
+    </div>
+
+    <div class="row">
+     
+        <a class="btn btn-primary" href="">Leave Hood</a>
+      
     </div>
     {% endfor %}
 </div>

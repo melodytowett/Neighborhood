@@ -4,7 +4,13 @@
 {% block content %}
 {{block.super}}
 <div class="container">
+    <h5>My Hood:{{user.profile.neighborhood.name}} </h5>
     {{hood.administrator}}
     {{hood.doctor_no}}
+    <div class="row">
+        {%for businese in businesses %}
+        <p>{{business.name}} <span>{{business.owner}}</span></p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

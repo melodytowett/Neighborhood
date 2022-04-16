@@ -1,0 +1,34 @@
+{%extends 'all-hoods/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+{{block.super}}
+<style>
+    .container{
+        color: white;
+    }
+</style>
+<div class="container">
+     <h3>Businesses In my village </h3>
+     <a class="btn btn-success" href="{% url 'business' %}">Add Business</a>
+     {% for business in businesses %}
+     <div class="row">
+         <h6>Name</h6>
+         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+             <p>{{business.business_name}}</p>
+         </div>
+         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+             
+              <img src="{{business.business_image.url}}" alt="image">
+         </div>
+         <div class="col-xs-2 col-sm-2 col-lg-2"></div>
+
+         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+             <p>Located at: <span>{{business.neighborhood}} By :{{business.owner}} </span></p>
+             <p>Business Emmail: <span> <b>{{business.email}}</b> </span></p>
+         </div>
+     </div>  
+    {% endfor %}
+  
+</div>
+{%endblock%}

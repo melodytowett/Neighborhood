@@ -14,8 +14,15 @@
     <div class="navbar-header" style="margin-right: 400px;">
       <a class="navbar-nav" href=" {% url 'hood'%} ">Neighborhood</a>
     </div>
+       <div class="navbar-header">
+      <a class="navbar-nav" href="{% url 'my_biz'%}">Businesses</a>
+    </div>
+    <a href="{% url 'post'%}">posts</a>
         <div class="navbar-header " style="background-color: rgb(9, 22, 9); border-radius: 40px;" >
       <a class="navbar-brand" href="#">Login</a>
+    </div>
+    <div class="navbar-header">
+      <a href="{% url 'view_prof' %}">View Profile</a>
     </div>
   </div>
 </nav>
