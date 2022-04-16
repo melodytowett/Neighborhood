@@ -2,6 +2,9 @@
 {% block content %}
 {{block.super}}
 <div class="container">
+    <div class="row">
+         <a class="btn btn-success" href="{% url 'new_hood' %}">Join Hood</a>
+    </div>
     {% for neighbor in neighbors %}
     <div class="row" style="color: white;">
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -23,18 +26,12 @@
             <p> <span>Hospital Number:</span> {{neighbor.doctor_no}} </p>
             <p> <span>Administator Number:</span> {{neighbor.administrator}} </p>
         </div>
-        {% for post in posts %}
-      
-        <h5> {{ post.title}}</h5>
-        <p>{{ post.post }}</p>
-    
-        {% endfor %}
         <hr>
     </div>
 
     <div class="row">
      
-        <a class="btn btn-primary" href="">Leave Hood</a>
+        <a class="btn btn-success" href="">Leave Hood</a>
       
     </div>
     {% endfor %}

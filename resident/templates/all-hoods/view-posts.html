@@ -1,0 +1,26 @@
+{% extends 'all-hoods/base.html'%}
+{% load bootstrap4 %} 
+{% load static %} 
+{% block content %}
+{{block.super}}
+
+<div class="container">
+    <a class="btn btn-success" href="{%url 'post' %}" style="margin-left: 250px; margin-top: 20px;">Add Post</a>
+    {% for post in posts %}
+    <div class="card" style="width: 24rem; margin-top: 30px;margin-left: 250px;">
+        <div class="card-body">
+           <div class="card-header"> <h4 class="card-title"> <span>Title: </span>
+                {{ post.title}} </h4>
+                <p><span>Posted by:</span> {{post.author}}
+                </p>
+            </div>
+            <p class="card-text">
+                {{ post.post }}
+            </p>
+
+        </div>
+        <div class="card-footer"> <span>Posts:</span>{{post.hood}}</div>
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}

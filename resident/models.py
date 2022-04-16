@@ -82,7 +82,7 @@ class Business(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     hood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,default=True)
-    post = models.TextField()
+    post = models.TextField(max_length=500,blank=True)
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='author')
     # post_date = models.DateField()
 

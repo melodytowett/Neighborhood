@@ -4,9 +4,14 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {{block.super}}
-  <form  action="{%url 'hood'%}" method="post" enctype="multipart/form-data">
+<div class="container">
+  <div class="card " style="margin-left: 200px; margin-top: 30px; padding-left: 50px;">
+      <form  action="{%url 'hood'%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
     {{ hood_form|crispy }}
     <input type="submit" class="btn btn-success btn-lg" value="Post">
   </form>
+  </div>
+</div>
+
 {% endblock %}

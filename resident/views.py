@@ -9,18 +9,18 @@ from resident.models import Business, Neighborhood, Post, Profile
 def home(request):
     return render(request,'home.html')
 
-# def join_hood(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         hood_form = HoodForm(request.POST,request.FILES)
-#         if hood_form.is_valid():
-#             hood = hood_form.save(commit=False)
-#             hood.admin= current_user
-#             hood.save()
-#             return redirect('hood')
-#     else:
-#         hood_form = HoodForm()
-#     return render(request,'all-hoods/new-hood.html',{"hood_form":hood_form})
+def join_hood(request):
+    current_user = request.user
+    if request.method == 'POST':
+        hood_form = HoodForm(request.POST,request.FILES)
+        if hood_form.is_valid():
+            hood = hood_form.save(commit=False)
+            hood.admin= current_user
+            hood.save()
+            return redirect('hood')
+    else:
+        hood_form = HoodForm()
+    return render(request,'all-hoods/new-hood.html',{"hood_form":hood_form})
     
 def my_neighborhood(request):
     current_user = request.user
@@ -81,3 +81,7 @@ def my_post(request):
     else:
         post_form = PostForm()
     return render(request,'all-hoods/post.html',{"post_form":post_form})
+def hood_post(request):
+    current_user = request.user
+    posts = Post.objects.all()
+    return render(request,'all-hoods/view-posts.html',{"user":current_user,"posts":posts})

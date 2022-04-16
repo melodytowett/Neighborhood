@@ -7,22 +7,27 @@
 </head>
 <body>
 <nav class="navbar navbar-inverse" style="background-color: white; margin-top: 30px;">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href=" {%url 'home'%} ">Home</a>
     </div>
-    <div class="navbar-header" style="margin-right: 400px;">
+    <div class="navbar-header">
       <a class="navbar-nav" href=" {% url 'hood'%} ">Neighborhood</a>
     </div>
        <div class="navbar-header">
       <a class="navbar-nav" href="{% url 'my_biz'%}">Businesses</a>
     </div>
-    <a href="{% url 'post'%}">posts</a>
+    <a href="{% url 'hood_posts'%}">posts</a>
         <div class="navbar-header " style="background-color: rgb(9, 22, 9); border-radius: 40px;" >
       <a class="navbar-brand" href="#">Login</a>
     </div>
-    <div class="navbar-header">
-      <a href="{% url 'view_prof' %}">View Profile</a>
+    <div class="dropdown">
+      <img class="rounded-circle dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/static/image/neib.jpg" alt="profile" width="40px" height="40px">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'view_prof' %}">my profile</a>
+        <a class="dropdown-item" href="my_profile/">Upload profile</a>
+        <a class="dropdown-item" href="#">Logout</a>
+        </div>
     </div>
   </div>
 </nav>
