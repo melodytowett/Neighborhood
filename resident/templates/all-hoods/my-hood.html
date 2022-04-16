@@ -1,0 +1,10 @@
+{% extends 'all-hoods/base.html'%}
+{% load bootstrap4 %} 
+{% load static %} 
+{% block content %}
+{{block.super}}
+<div class="container">
+    {{hood.administrator}}
+    {{hood.doctor_no}}
+</div>
+{% endblock %}

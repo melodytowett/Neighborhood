@@ -30,10 +30,10 @@ def my_hood(request,id):
     current_user = request.user
     hood = Neighborhood.objects.get(id=id)
     businesses = Business.objects.filter(neighborhood=hood)
-    posts = Post.objects.filter(neighborhood=hood)
+    # posts = Post.objects.filter(neighborhood=hood)
     ocupants = Profile.objects.filter(neighborhood=hood)
     request.user.save()
-    return render(request,'all-hood/my_neighbors.html',{"hood":hood,"businesses":businesses,"posts":posts,"ocupants":ocupants,"user":current_user})
+    return render(request,'all-hoods/my-hood.html',{"hood":hood,"businesses":businesses,"ocupants":ocupants,"user":current_user})
 
 def my_profile(request,username):
     current_user = request.user
@@ -67,7 +67,7 @@ def my_business(request,id):
     return render(request,'all-hoods/biz.html',{"biz_form":biz_form})
 
 def my_post(request,id):
-    hood = Neighborhood.objects.ge(id=id)
+    hood = Neighborhood.objects.get(id=id)
     # current_user = request.user
     if request.method == 'POST':
         post_form = PostForm(request.POST,request.FILES)

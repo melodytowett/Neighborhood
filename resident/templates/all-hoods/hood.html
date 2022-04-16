@@ -4,11 +4,26 @@
 <div class="container">
     {% for neighbor in neighbors %}
     <div class="row" style="color: white;">
-        <p> {{neighbor.name}} </p>
-        <p>{{neighbor.location}}</p>
-        <p> {{neighbor.about}} </p>
-        <p> {{neighbor.police_num}} </p>
-        <img src="{{neighbor.image_hood.url}}" alt="">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <h4>Neighborhood</h4>
+             <p> {{neighbor.name}} </p>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Location</h4>
+            <p>{{neighbor.location}}</p>
+             <img src="{{neighbor.image_hood.url}}" alt="">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>About us</h4>
+            <p> {{neighbor.about}} </p>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <h4>Emergency Call</h4>
+            <p> <span>Police Number:</span> {{neighbor.police_num}} </p>
+            <p> <span>Hospital Number:</span> {{neighbor.doctor_no}} </p>
+            <p> <span>Administator Number:</span> {{neighbor.administrator}} </p>
+        </div>
+        <hr>
     </div>
     {% endfor %}
 </div>
