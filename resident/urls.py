@@ -15,7 +15,8 @@ urlpatterns=[
     path('view_biz/',views.view_biz,name='my_biz'),
     path('my_post/',views.my_post,name='post'),
     path('hood_post/',views.hood_post,name='hood_posts'),
-    path("register/", views.register_request, name="register")
+    path("register/", views.register_request, name="register"),
+    path("login", views.login_user, name="login")
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
