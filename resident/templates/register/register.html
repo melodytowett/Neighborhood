@@ -1,0 +1,21 @@
+{% extends "all-hoods/base.html" %}
+
+{% block content %} 
+
+{% load crispy_forms_tags %}         
+
+<!--Register-->
+
+<div class="container py-5">
+  <div class="card text-center" style="width: 24rem; margin-left: 200px;">
+  <h1 class="card-header">Sign up</h1>
+  <form method="POST" class="card-body">
+    {% csrf_token %}
+    {{ register_form|crispy }}
+    <button class="btn btn-primary" type="submit">register</button>
+  </form>
+  <p class="text-center card-footer">Have an account? <a href="/login">login</a>.</p>
+</div>
+</div>
+
+{% endblock %}
