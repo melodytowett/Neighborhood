@@ -8,27 +8,32 @@
 <body>
 <nav class="navbar navbar-inverse" style="background-color: white; margin-top: 30px;">
   <div class="container">
+    {% if user.is_authenticated %}
     <div class="navbar-header">
       <a class="navbar-brand" href=" {%url 'home'%} ">Home</a>
     </div>
     <div class="navbar-header">
       <a class="navbar-nav" href=" {% url 'hood'%} ">Neighborhood</a>
     </div>
-       <div class="navbar-header">
+      <div class="navbar-header">
       <a class="navbar-nav" href="{% url 'my_biz'%}">Businesses</a>
     </div>
     <a href="{% url 'hood_posts'%}">posts</a>
         <div class="navbar-header " style="background-color: rgb(9, 22, 9); border-radius: 40px;" >
-      <a class="navbar-brand" href="#">Login</a>
-    </div>
+     </div>
     <div class="dropdown">
-      <img class="rounded-circle dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/static/image/neib.jpg" alt="profile" width="40px" height="40px">
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <img class="rounded-circle dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/static/image/neib.jpg" alt="profile" width="30px" height="30px">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 20px;">
         <a class="dropdown-item" href="{% url 'view_prof' %}">my profile</a>
-        <a class="dropdown-item" href="my_profile/">Upload profile</a>
-        <a class="dropdown-item" href="#">Logout</a>
+        <a class="dropdown-item" href="my_profile/">Add profile</a>
+        <a class="dropdown-item" href="/login">Logout</a>
         </div>
     </div>
+    {% else %}
+       <div class="navbar-header">
+      <a class="navbar-nav" href="/Signup">Register</a>
+    </div>
+    {% endif %}
   </div>
 </nav>
 </body>

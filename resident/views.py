@@ -1,4 +1,4 @@
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate,logout
 from django.contrib import messages
 from .forms import NewUserForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -113,7 +113,26 @@ def my_post(request):
     else:
         post_form = PostForm()
     return render(request,'all-hoods/post.html',{"post_form":post_form})
+
 def hood_post(request):
     current_user = request.user
     posts = Post.objects.all()
     return render(request,'all-hoods/view-posts.html',{"user":current_user,"posts":posts})
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect("home")
+
+def leave_hood(request,id):
+    hood = Neighborhood.objects.get(id=id)
+    request.user.profile.neighborhood = None
+    request.user.profile.save()
+    return redirect('hood')
+
+def search_hood(request):
+    current_user = request.user
+    if request.method == 'GET':
+        name = request.GET.get("name")
+        hoods = Neighborhood.objects.filter(name__icontains=name).all()
+    return render(request,'all-hoods/search.html',{"hoods":hoods,"current_user":current_user})
