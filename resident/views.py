@@ -3,6 +3,7 @@ from django.contrib import messages
 from .forms import NewUserForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import request
+from django.contrib.auth .decorators import login_required
 from django.shortcuts import redirect, render
 from.forms import BusinessForm, HoodForm, PostForm, ProfileForm
 from resident.models import Business, Neighborhood, Post, Profile
@@ -40,7 +41,8 @@ def login_user(request):
 
 def home(request):
     return render(request,'home.html')
-
+    
+@login_required(login_url='login')
 def join_hood(request):
     current_user = request.user
     if request.method == 'POST':
@@ -53,14 +55,15 @@ def join_hood(request):
     else:
         hood_form = HoodForm()
     return render(request,'all-hoods/new-hood.html',{"hood_form":hood_form})
-    
+
+@login_required(login_url='login')
 def my_neighborhood(request):
     current_user = request.user
     neighbors = Neighborhood.objects.all()
     posts = Post.objects.all()
     return render(request,'all-hoods/hood.html',{"neighbors":neighbors,"posts":posts,"current_user":current_user})
 
-
+@login_required(login_url='login')
 def my_profile(request,username):
     current_user = request.user
     if request.method == 'POST':
@@ -74,10 +77,12 @@ def my_profile(request,username):
         prof_form = ProfileForm(instance=request.user.profile)
     return render(request,'all-hoods/profile.html',{"prof_form":prof_form})
 
+@login_required(login_url='login')
 def view_prof(request):
     profiles = Profile.objects.all()
     return render(request,'all-hoods/view-prof.html',{"profiles":profiles})
 
+@login_required(login_url='login')
 def my_business(request):
     # hood=Neighborhood.objects.get(id=id)
     current_user = request.user
@@ -94,11 +99,13 @@ def my_business(request):
         biz_form = BusinessForm()
     return render(request,'all-hoods/biz.html',{"biz_form":biz_form,"businesses":businesses})
 
+@login_required(login_url='login')
 def view_biz(request):
     businesses = Business.objects.all()
     neighbors = Neighborhood.objects.all()
     return render(request,'all-hoods/business.html',{"businesses":businesses,"neighbors":neighbors})
 
+@login_required(login_url='login')
 def my_post(request):
     # hood = Neighborhood.objects.get(id=id)
     current_user = request.user
@@ -114,22 +121,26 @@ def my_post(request):
         post_form = PostForm()
     return render(request,'all-hoods/post.html',{"post_form":post_form})
 
+@login_required(login_url='login')
 def hood_post(request):
     current_user = request.user
     posts = Post.objects.all()
     return render(request,'all-hoods/view-posts.html',{"user":current_user,"posts":posts})
 
+@login_required(login_url='login')
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
 	return redirect("home")
 
+@login_required(login_url='login')
 def leave_hood(request,id):
     hood = Neighborhood.objects.get(id=id)
     request.user.profile.neighborhood = None
     request.user.profile.save()
     return redirect('hood')
 
+@login_required(login_url='login')
 def search_hood(request):
     current_user = request.user
     if request.method == 'GET':

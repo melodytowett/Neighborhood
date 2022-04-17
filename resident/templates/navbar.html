@@ -1,40 +1,55 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<nav class="navbar navbar-inverse" style="background-color: white; margin-top: 30px;">
-  <div class="container">
-    {% if user.is_authenticated %}
-    <div class="navbar-header">
-      <a class="navbar-brand" href=" {%url 'home'%} ">Home</a>
-    </div>
-    <div class="navbar-header">
-      <a class="navbar-nav" href=" {% url 'hood'%} ">Neighborhood</a>
-    </div>
-      <div class="navbar-header">
-      <a class="navbar-nav" href="{% url 'my_biz'%}">Businesses</a>
-    </div>
-    <a href="{% url 'hood_posts'%}">posts</a>
-        <div class="navbar-header " style="background-color: rgb(9, 22, 9); border-radius: 40px;" >
-     </div>
-    <div class="dropdown">
-      <img class="rounded-circle dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/static/image/neib.jpg" alt="profile" width="30px" height="30px">
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 20px;">
-        <a class="dropdown-item" href="{% url 'view_prof' %}">my profile</a>
-        <a class="dropdown-item" href="my_profile/">Add profile</a>
-        <a class="dropdown-item" href="/login">Logout</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-inverse"
+      style="background-color: white; margin-top: 30px"
+    >
+      <div class="container-fluid">
+        {% if user.is_authenticated %}
+        <div class="navbar-header">
+          <a class="navbar-brand" href=" {%url 'home'%} ">Home</a>
         </div>
-    </div>
-    {% else %}
-       <div class="navbar-header">
-      <a class="navbar-nav" href="/Signup">Register</a>
-    </div>
-    {% endif %}
-  </div>
-</nav>
-</body>
+        <div class="navbar-header">
+          <a class="navbar-nav" href=" {% url 'hood'%} ">Neighborhood</a>
+        </div>
+        <div class="navbar-header">
+          <a class="navbar-nav" href="{% url 'my_biz'%}">Businesses</a>
+        </div>
+        <a href="{% url 'hood_posts'%}">posts</a>
+        <div class="dropdown">
+          <img
+            class="rounded-circle dropdown-toggle"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            src="/static/image/neib.jpg"
+            alt="profile"
+            width="30px"
+            height="30px"
+          />
+          <div
+            class="dropdown-menu"
+            aria-labelledby="dropdownMenuButton"
+            style="width: 20px"
+          >
+            <a class="dropdown-item" href="{% url 'view_prof' %}">my profile</a>
+            <a class="dropdown-item" href="my_profile/">Add profile</a>
+            <a class="dropdown-item" href="{%url 'home' %}">Logout</a>
+          </div>
+        </div>
+        {% else %}
+        <div class="navbar-header">
+          <a class="navbar-nav" href="/Signup">Register</a>
+        </div>
+        {% endif %}
+      </div>
+    </nav>
+  </body>
 </html>
