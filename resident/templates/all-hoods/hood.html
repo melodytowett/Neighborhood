@@ -1,10 +1,17 @@
 {%extends 'all-hoods/base.html' %}
 {% block content %}
+{% load static %}
 {{block.super}}
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-top: 30px;">
          <a class="btn btn-success" href="{% url 'new_hood' %}">Join Hood</a>
-    </div>
+   
+      <form class="form-inline mr-3" action="/search" enctype="multipart/form-data" role="search" aria-label="Search" style="margin-left: 200px;">
+          {% csrf_token %}
+             <input autocomplete="off" id="searching" class="form-control input-sm search" 
+              placeholder="&#xF002; search hood"  style="font-family:Arial, FontAwesome" name="name">
+        </form>
+         </div>
     {% for neighbor in neighbors %}
     <div class="row" style="color: white;">
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">

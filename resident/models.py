@@ -38,9 +38,9 @@ class Neighborhood(models.Model):
         neighbors = cls.objects.filter(name=name)
         return neighbors
     @classmethod
-    def find_hood(cls,neighborhood_id):
-        return cls.objects.filter(id=neighborhood_id)
-
+    def find_hood(cls,name):
+        name = cls.objects.filter(name__icontains=name)
+        return name
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='prof')
     bio = models.TextField(max_length=500,blank=True)

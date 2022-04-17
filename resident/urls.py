@@ -15,6 +15,7 @@ urlpatterns=[
     path('view_biz/',views.view_biz,name='my_biz'),
     path('my_post/',views.my_post,name='post'),
     path('hood_post/',views.hood_post,name='hood_posts'),
+    path('search/',views.search_hood,name='search'),
     path("register/", views.register_request, name="register"),
     path("login", views.login_user, name="login"),
     path("logout", views.logout_request, name= "logout"),

@@ -1,0 +1,50 @@
+{% extends 'all-hoods/base.html'%}
+{% load bootstrap4 %} 
+{% load static %} 
+{% block content %}
+{{block.super}}
+<style>
+    .row{
+        color: white;
+    }
+</style>
+  <div class="row" style=" margin-left: 200px;">
+    {% if hoods%}
+      <h2>results found</h2>
+    {% else %}
+      <h2> Found no such hood</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+  {% if hoods %}
+    {% for hood in hoods %}
+    
+        <div class="row" style="color: white;">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <h4>Neighborhood</h4>
+             <p> {{hood.name}} </p>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>Location</h4>
+            <p>{{neighbor.location}}</p>
+             <img src="{{hood.image_hood.url}}" alt="">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h4>About us</h4>
+            <p> {{hood.about}} </p>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <h4>Emergency Call</h4>
+            <p> <span>Police Number:</span> {{hood.police_num}} </p>
+            <p> <span>Hospital Number:</span> {{hood.doctor_no}} </p>
+            <p> <span>Administator Number:</span> {{hood.administrator}} </p>
+        </div>
+        <hr>
+    </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
