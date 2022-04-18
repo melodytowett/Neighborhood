@@ -1,5 +1,6 @@
 from django.contrib.auth import login,authenticate,logout
 from django.contrib import messages
+from .email import send_email
 from .forms import NewUserForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import request
@@ -38,7 +39,7 @@ def login_user(request):
     form = AuthenticationForm()
     return render(request=request,template_name="register/login.html",context={"login_form":form})
 
-
+@login_required(login_url='login')
 def home(request):
     return render(request,'home.html')
     
@@ -127,7 +128,6 @@ def hood_post(request):
     posts = Post.objects.all()
     return render(request,'all-hoods/view-posts.html',{"user":current_user,"posts":posts})
 
-@login_required(login_url='login')
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
