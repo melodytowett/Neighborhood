@@ -1,4 +1,4 @@
-# Awwards Project
+# Negihborhood
 #### By Melody Chepkorir
 ## Table of Content
 + [Description](#description)
@@ -10,15 +10,15 @@
 
 ****
 ## Description
-Awwards Project is an application that allows user to register then they can post their projects to be rated by thier peers.
+A web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
 ### images of my page
 *User can login or register if doesnt have an account
-[![Screenshot-from-2022-04-11-12-45-20.png](https://i.postimg.cc/QMk0SQFS/Screenshot-from-2022-04-11-12-45-20.png)](https://postimg.cc/Lq5t8ZBZ)
+
 * Below if the Home page to my project.
 * An authenticated user can upload profile, upload thie site and log out of the application
-[![Screenshot-from-2022-04-11-12-36-58.png](https://i.postimg.cc/W4jdmgL2/Screenshot-from-2022-04-11-12-36-58.png)](https://postimg.cc/Yvn2M4CV)
+
 *User can rate other peoples project
-[![Screenshot-from-2022-04-11-12-43-33.png](https://i.postimg.cc/QdZQPBGz/Screenshot-from-2022-04-11-12-43-33.png)](https://postimg.cc/w7FRRjB5)
+
 ## Live link
 
 ## Installation
@@ -61,9 +61,9 @@ $ python3.8 manage.py test
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
 | load page | Displays authentication page| User is loged in|
-| clicke the add icon | user can post screenshort of desired project|Image is posted on page  |
+| click join hood| user is added to a neighborhood|user is added to a neighborhood  |
 | click on the profile icon  | user is directed to update their profile|profile is updates|
-|User Clicks in the rate button|User is directed to rating form where they  rate their peers projects|rates are added|
+|User Clicks add post|User is directed to fill a form to post certain issues|posts are added|
 |logout icon|user is logged out of the application|user is directed back to the authentication stage|
 
 ****
