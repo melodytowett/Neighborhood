@@ -13,34 +13,34 @@
         </form>
          </div>
     {% for neighbor in neighbors %}
-    <div class="row" style="color: white;">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <div class="row" style="color: black; margin-left: 200px; margin-bottom: 30px;">
+        <div class="card" style="width: 30rem;">
+        <div class="card-header">
             <h4>Neighborhood</h4>
-             <p> {{neighbor.name}} </p>
+             <p> {{neighbor.name}} located in {{neighbor.location}} County</p>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <h4>Location</h4>
-            <p>{{neighbor.location}}</p>
-             <img src="{{neighbor.image_hood.url}}" alt="">
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+ 
+        <div class="card-body">
+            <img src="{{neighbor.image_hood.url}}" alt="">
             <h4>About us</h4>
             <p> {{neighbor.about}} </p>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="card-text">
             <h4>Emergency Call</h4>
             <p> <span>Police Number:</span> {{neighbor.police_num}} </p>
             <p> <span>Hospital Number:</span> {{neighbor.doctor_no}} </p>
             <p> <span>Administator Number:</span> {{neighbor.administrator}} </p>
         </div>
         <hr>
-    </div>
-
-    <div class="row">
+          <div class="card-footer">
      
         <a class="btn btn-success" href="">Leave Hood</a>
       
     </div>
+    </div>
+
+  
+     </div>
     {% endfor %}
 </div>
 {% endblock %}

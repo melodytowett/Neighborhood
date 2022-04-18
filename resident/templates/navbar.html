@@ -13,16 +13,26 @@
       <div class="container-fluid">
         {% if user.is_authenticated %}
         <div class="navbar-header">
-          <a class="navbar-brand" href=" {%url 'home'%} ">Home</a>
+          <a class="navbar-brand text-success" href=" {%url 'home'%} ">Home</a>
         </div>
-        <div class="navbar-header">
-          <a class="navbar-nav" href=" {% url 'hood'%} ">Neighborhood</a>
-        </div>
-        <div class="navbar-header">
-          <a class="navbar-nav" href="{% url 'my_biz'%}">Businesses</a>
-        </div>
-        <a href="{% url 'hood_posts'%}">posts</a>
         <div class="dropdown">
+          <button
+            class="btn btn-success dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Resident
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href=" {% url 'hood'%} ">Neighborhood</a>
+            <a class="dropdown-item" href="{% url 'my_biz'%}">Businesses</a>
+            <a class="dropdown-item" href="{% url 'hood_posts'%}" >posts</a>
+          </div>
+        </div>
+        <div class="dropdown" style="margin-right: 100px;">
           <img
             class="rounded-circle dropdown-toggle"
             id="dropdownMenuButton"
