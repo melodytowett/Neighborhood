@@ -20,7 +20,7 @@ A web application that allows you to be in the loop about everything happening i
 * An image of neighbohoor
 [![Screenshot-from-2022-04-18-21-31-41.png](https://i.postimg.cc/TY6y7kqd/Screenshot-from-2022-04-18-21-31-41.png)](https://postimg.cc/BtmQtBVk)
 *User can add and view user profile
-[![Screenshot-from-2022-04-18-21-31-41.png](https://i.postimg.cc/TY6y7kqd/Screenshot-from-2022-04-18-21-31-41.png)](https://postimg.cc/BtmQtBVk)
+[![Screenshot-from-2022-04-18-21-33-05.png](https://i.postimg.cc/zfn6jGJX/Screenshot-from-2022-04-18-21-33-05.png)](https://postimg.cc/f3R8WZt6)
 
 ## Live link
 https://melo-neighbor.herokuapp.com/hood/
