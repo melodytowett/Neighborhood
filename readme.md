@@ -13,14 +13,17 @@
 A web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
 ### images of my page
 *User can login or register if doesnt have an account
-
+[![Screenshot-from-2022-04-18-16-35-47.png](https://i.postimg.cc/vBZgzDWW/Screenshot-from-2022-04-18-16-35-47.png)](https://postimg.cc/wtnjxq4v)
 * Below if the Home page to my project.
-* An authenticated user can upload profile, upload thie site and log out of the application
-
-*User can rate other peoples project
+[![Screenshot-from-2022-04-18-16-35-40.png](https://i.postimg.cc/qgVv97CD/Screenshot-from-2022-04-18-16-35-40.png)](https://postimg.cc/RJdmt4dw)
+[![Screenshot-from-2022-04-18-16-33-46.png](https://i.postimg.cc/G2xKBBbG/Screenshot-from-2022-04-18-16-33-46.png)](https://postimg.cc/2b3hMSbS)
+* An image of neighbohoor
+[![Screenshot-from-2022-04-18-21-31-41.png](https://i.postimg.cc/TY6y7kqd/Screenshot-from-2022-04-18-21-31-41.png)](https://postimg.cc/BtmQtBVk)
+*User can add and view user profile
+[![Screenshot-from-2022-04-18-21-31-41.png](https://i.postimg.cc/TY6y7kqd/Screenshot-from-2022-04-18-21-31-41.png)](https://postimg.cc/BtmQtBVk)
 
 ## Live link
-
+https://melo-neighbor.herokuapp.com/hood/
 ## Installation
 For installation have the following:
 -Visual studio
