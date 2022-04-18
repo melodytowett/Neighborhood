@@ -14,6 +14,8 @@ A web application that allows you to be in the loop about everything happening i
 ### images of my page
 *User can login or register if doesnt have an account
 [![Screenshot-from-2022-04-18-16-35-47.png](https://i.postimg.cc/vBZgzDWW/Screenshot-from-2022-04-18-16-35-47.png)](https://postimg.cc/wtnjxq4v)
+
+### register
 [![Screenshot-from-2022-04-18-16-35-40.png](https://i.postimg.cc/qgVv97CD/Screenshot-from-2022-04-18-16-35-40.png)](https://postimg.cc/RJdmt4dw)
 
 * Below if the Home page to my project.
