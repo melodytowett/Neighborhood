@@ -59,7 +59,6 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
     
-
 class Business(models.Model):
     business_name = models.CharField(max_length=100)
     owner = models.ForeignKey(User,on_delete=models.CASCADE,default=True)
