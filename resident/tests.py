@@ -1,8 +1,7 @@
-import email
 from os import name
 from django.test import TestCase
 
-from resident.models import Business, Neighborhood, Profile,User
+from resident.models import Business, Neighborhood, Profile,User,Post
 
 # Create your tests here.
 class NeighborTestClass(TestCase):
@@ -32,7 +31,7 @@ class ProfileTestCase(TestCase):
         self.profile.save_profile()
         profiles = Profile.objects.all()
         self.assertTrue(len(profiles) > 0)
-        
+
 class BusinessTestCase(TestCase):
     def setUp(self):
         user = User.objects.create_user(username="melo",email="melo@gmail.com",password="983di")
@@ -45,3 +44,17 @@ class BusinessTestCase(TestCase):
         self.business.save_business()
         business = Business.objects.all()
         self.assertTrue(len(business) > 0)
+    
+class PostTestCase(TestCase):
+    def setUp(self):
+        user = User.objects.create_user(username="melo",email="melo@gmail.com",password="983di")
+        self.posts = Post(author=user,title="politics",post="politics isa dirty game")
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.posts,Post))
+
+    def save_post_method(self):
+        self.posts.save_post()
+        posts = Post.objects.all()
+        self.assertTrue(len(posts) > 0)
+
